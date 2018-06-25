@@ -33,7 +33,14 @@ ul.results {
 }
 
 
-
 .list {
   margin-top: 50px;
+}
+
+#delete-x {
+  text-decoration: none;
+}
+
+#delete-x:hover {
+  color: red;
 }

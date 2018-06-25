@@ -73,6 +73,11 @@ class StopWatch extends React.Component {
     });
   }
 
+  remove(index) {
+    const newResults = this.state.results.filter(time => this.state.results.indexOf(time) !== index);
+    this.setState({results: newResults});
+  }
+
   render() {
     return (
       <div className={'app'}>
@@ -87,7 +92,7 @@ class StopWatch extends React.Component {
         <div className={'list'}>
           <a href={'#'} className={'button'} id={'reset-list'} onClick={() => this.resetList()}>Reset list</a>
           <ul className={'results'}>
-            {this.state.results.map((element, index) => <li key={index}> {element} </li>)}
+            {this.state.results.map((element, index) => <li key={index}> {element} <a href={'#'} id={'delete-x'} onClick={() => this.remove(index)}> X </a></li> )}
           </ul>
         </div>
       </div>

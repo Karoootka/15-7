@@ -104,9 +104,19 @@ var StopWatch = function (_React$Component) {
       });
     }
   }, {
+    key: 'remove',
+    value: function remove(index) {
+      var _this3 = this;
+
+      var newResults = this.state.results.filter(function (time) {
+        return _this3.state.results.indexOf(time) !== index;
+      });
+      this.setState({ results: newResults });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return React.createElement(
         'div',
@@ -117,14 +127,14 @@ var StopWatch = function (_React$Component) {
           React.createElement(
             'a',
             { href: '#', className: 'button', id: 'start', onClick: function onClick() {
-                return _this3.start();
+                return _this4.start();
               } },
             'Start'
           ),
           React.createElement(
             'a',
             { href: '#', className: 'button', id: 'stop', onClick: function onClick() {
-                return _this3.stop();
+                return _this4.stop();
               } },
             'Stop'
           )
@@ -137,7 +147,7 @@ var StopWatch = function (_React$Component) {
         React.createElement(
           'a',
           { href: '#', className: 'button', id: 'reset', onClick: function onClick() {
-              return _this3.reset();
+              return _this4.reset();
             } },
           'Reset'
         ),
@@ -147,7 +157,7 @@ var StopWatch = function (_React$Component) {
           React.createElement(
             'a',
             { href: '#', className: 'button', id: 'reset-list', onClick: function onClick() {
-                return _this3.resetList();
+                return _this4.resetList();
               } },
             'Reset list'
           ),
@@ -160,7 +170,14 @@ var StopWatch = function (_React$Component) {
                 { key: index },
                 ' ',
                 element,
-                ' '
+                ' ',
+                React.createElement(
+                  'a',
+                  { href: '#', id: 'delete-x', onClick: function onClick() {
+                      return _this4.remove(index);
+                    } },
+                  ' X '
+                )
               );
             })
           )
